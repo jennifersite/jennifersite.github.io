@@ -1,0 +1,14 @@
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    Blogg - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h4 class = "entry-title">Tags</h4>
+    {% for tag in tags %}
+        <li><a href="{{ tag.get_absolute_url }}">{{ tag }}</a></li>
+    {% empty %}
+        None
+    {% endfor %}
+{% endblock %}

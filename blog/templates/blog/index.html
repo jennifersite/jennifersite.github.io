@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Jennifer's Blog{% endblock %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    		<!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{% static 'blog/vendor/bootstrap/css/bootstrap.min.css' %}">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="{% static 'blog/vendor/bootstrap/css/bootstrap-theme.min.css' %}">
+
+        {# MEDIUM STYLE EDITOR#}
+        <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}">
+
+        {# Custom CSS#}
+        <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+
+        {# Fonts#}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+</head>
+<body>
+    <!-- Fixed navbar -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href={% url 'get_recent_posts' %}>Jennifer &#10084; Blog</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            {% include 'blog/nav.html' %}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% include 'blog/social.html' %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <!-- Footer================================================== -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="text-center">
+                <footer class="blog-footer">
+                    <p>&copy 2017 - Jennifer</p>
+                </footer>
+            </div>
+        </div>
+    </nav>
+
+<div class="container" style="padding-top: 50px;">
+            <div class="col-xs-12 col-sm-9">
+                <article class="post">
+                    {% block content %}
+                    {% endblock %}
+                </article>
+            </div>
+            <div class="col-xs-6 col-sm-2" id="sidebar" style="margin-left:60px; background-color:white;">
+                    <div id="mySidenav" class="sidenav">
+                      <figure class="profile-userpic">
+                        <img src="{% static 'blog/img/me_sun.jpg' %}" class="img-responsive" alt="Profile Picture">
+                      </figure>
+                      <a href="#">About</a>
+                      <a href="#">Services</a>
+                      <a href="#">Clients</a>
+                      <a href="#">Contact</a>
+                    </div>
+              </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'blog/vendor/jquery/jquery.js' %}"></script>
+    <script src="{% static 'blog/vendor/bootstrap/js/bootstrap.js' %}"></script>
+    <script src="{% static 'blog/js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script src="{% static 'blog/js/proper.min.js' %}"></script>
+<!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

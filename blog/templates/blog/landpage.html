@@ -1,0 +1,17 @@
+{% extends "blog/base.html"  %}
+{% load custom_markdown %}
+{% block content %}
+    {% for post in recentPosts %}
+        <h1 class = "entry-title" style="text-align:center;">
+            {{ post.title|capfirst }}
+        </h1>
+        <p class="entry-meta">
+            {% include 'blog/post_info.html' %}
+        </p>
+        <p>
+        {{ post.content|custom_markdown}}
+         </p>
+    {% empty %}
+        <p>There are no posts</p>
+    {% endfor %}
+{% endblock %}

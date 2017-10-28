@@ -1,0 +1,18 @@
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    Blogg - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+     <h1 class = "entry-title">Categories</h1>
+    <article class="post">
+        <div class="entry-content clearfix">
+            {% for category in categories %}
+                <li><a href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+            {% empty %}
+                None
+            {% endfor %}
+        </div>
+    </article>
+{% endblock %}

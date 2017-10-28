@@ -1,0 +1,11 @@
+{% extends "blog/base.html"  %}
+{% block content %}
+    {% for post in posts %}
+        <a href="{% url 'post_detail' post.id %}"><h4>{{ post.title|capfirst }}</h4></a></a>
+        <p class="entry-meta">
+            {% include 'blog/post_info.html' %}
+        </p>
+    {% empty %}
+        <p>There are no posts</p>
+    {% endfor %}
+{% endblock %}

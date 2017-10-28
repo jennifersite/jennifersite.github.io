@@ -1,0 +1,15 @@
+{% extends "blog/base.html"  %}
+
+{% block content %}
+    <header class="entry-header">
+        <h4 class = "entry-title">All the posts tagged with - {{ tag.name }}</h4>
+        {% for post in posts %}
+            <h3 >
+                <a href="{{ post.get_absolute_url }}">{{ post.title|capfirst }}</a>
+            </h3>
+            <p class="post-info">
+                {% include 'blog/post_info.html' %}
+            </p>
+        {% endfor %}
+    </header>
+{% endblock %}
